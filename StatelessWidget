@@ -1,0 +1,45 @@
+import 'package:flutter/material.dart';
+
+class Counter extends StatelessWidget {
+  
+  const Counter({super.key});
+
+  // Isang counter variable para sa illustration 
+  final int counter = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    // Ang build method ang bumubuo ng UI ng widget
+    return Row(
+      // I-center ang mga nilalaman ng Row nang pahalang
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        // Gumawa ng ElevatedButton na may onPressed na callback
+        ElevatedButton(
+          onPressed: () {
+            // Dito ilalagay ang logic para sa pagtaas ng counter, 
+            // pero dahil stateless ito, dapat sa ibang lugar gawin ang action na ito
+          },
+          // Label ng button
+          child: const Text('Increment'),
+        ),
+        // Isang SizedBox para maglagay ng space sa pagitan ng button at ng text na nagpapakita ng counter
+        const SizedBox(width: 16),
+        // Para maipakita yung counter
+        Text('Count: $counter'),
+      ],
+    );
+  }
+}
+
+void main() {
+  runApp(
+    const MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: Counter(),
+        ),
+      ),
+    ),
+  );
+}
